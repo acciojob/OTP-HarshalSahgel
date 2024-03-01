@@ -23,6 +23,7 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Backspace") {
         if (e.target.value) {
             e.target.value = "";
+			e.target.previousElementSibling.focus();
         } else if (e.target.previousElementSibling) {
             e.preventDefault(); // Prevent the default backspace behavior
             e.target.previousElementSibling.focus();
