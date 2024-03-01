@@ -19,18 +19,14 @@ for(let i = 1; i <= numberOfInput; i++){
    code_container.appendChild(code);
 }
 
-document.addEventListener("keyup", (e) =>{
-   console.log(e);
-   if(e.key === "Backspace"){   
-    
-    if(e.target.value){ 
-       e.target.value = "";
-       e.target.previousElementSibling.focus();
-    }else{
-        e.target.previousElementSibling.focus();
-        e.target.previousElementSibling.value = "";
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace") {
+        if (e.target.value) {
+            e.target.value = "";
+        } else if (e.target.previousElementSibling) {
+            e.preventDefault(); // Prevent the default backspace behavior
+            e.target.previousElementSibling.focus();
+            e.target.previousElementSibling.value = "";
+        }
     }
-     
-      
-   }
 });
